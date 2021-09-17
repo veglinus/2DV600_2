@@ -10,8 +10,12 @@ public class Warrior extends Character {
     Warrior(String name) {
         this.name = name;
         this.className = "Warrior";
-        this.level = 1;
-        this.primaryAttribute = "Strength";
+    }
+
+    Warrior(String name, int level) {
+        this.name = name;
+        this.className = "Warrior";
+        this.level = level;
     }
 
     void learnAbility(Ability ability) {

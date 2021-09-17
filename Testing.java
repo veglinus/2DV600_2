@@ -1,47 +1,30 @@
 public class Testing {
     public static void main(String[] args) {
+
         var mychar = new Warrior("Linus");
-
-        var myspell = new Ability("Brutal smash", "survival");
-
+        var myspell = new Ability("test", "survival");
         mychar.learnAbility(myspell);
 
-        System.out.println(mychar.knownAbilities.toString());
+        mychar.setAttributes(new Attributes(10, 10, 10, 10));
+
+        var mychar2 = new Mage("Benny");
+        mychar2.learnSpell(new Spell("Frostbolt", "evocation"));
+        mychar2.learnSpell(new Spell("Frostbolt", "evocation"));
+
+        Character[] party = {mychar};
+
+        Character[] party2 = {mychar2};
+
+        var b = new Battle();
+
+        //b.printStatistics(party);
+
+        Character[] winner = b.resolve(party, party2);
+
+        if (winner == null) {
+            System.out.println("Tie!");
+        } else {
+            System.out.println(winner[0].name + " party won!");
+        }
     }
 }
-
-
-/*
-
-    Character(String name, String className) {
-        this.name = name;
-
-        className = className.toLowerCase();
-        if (className == "mage" || className == "warrior" || className == "rogue" || className == "cleric") {
-            this.className = className;
-        } else {
-            throw new IllegalArgumentException("Allowed classes are mage, warrior, rogue or cleric.");
-        }
-        
-        this.level = 1;
-        this.primaryAttribute = getPrimaryAttribute();
-    }
-
-
-            switch (this.className.toLowerCase()) {
-            case "mage":
-                return "intelligence";
-            
-            case "warrior":
-                return "strength";
-            
-            case "rogue":
-                return "agility";
-
-            case "cleric":
-                return "wisdom";
-        
-            default:
-                throw new IllegalArgumentException("Character does not have a class.");
-        }
-*/

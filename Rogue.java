@@ -10,8 +10,12 @@ public class Rogue extends Character {
     Rogue(String name) {
         this.name = name;
         this.className = "Rogue";
-        this.level = 1;
-        this.primaryAttribute = "Agility";
+    }
+
+    Rogue(String name, int level) {
+        this.name = name;
+        this.className = "Rogue";
+        this.level = level;
     }
 
     void learnAbility(Ability ability) {

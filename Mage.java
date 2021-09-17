@@ -10,8 +10,12 @@ public class Mage extends Character {
     Mage(String name) {
         this.name = name;
         this.className = "Mage";
-        this.level = 1;
-        this.primaryAttribute = "Intelligence";
+    }
+
+    Mage(String name, int level) {
+        this.name = name;
+        this.className = "Mage";
+        this.level = level;
     }
     
     void learnSpell(Spell spell) {

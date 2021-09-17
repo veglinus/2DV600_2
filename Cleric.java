@@ -10,8 +10,12 @@ public class Cleric extends Character {
     Cleric(String name) {
         this.name = name;
         this.className = "Cleric";
-        this.level = 1;
-        this.primaryAttribute = "Wisdom";
+    }
+
+    Cleric(String name, int level) {
+        this.name = name;
+        this.className = "Cleric";
+        this.level = level;
     }
 
     void learnSpell(Spell spell) {
