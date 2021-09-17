@@ -100,5 +100,64 @@ public class Battle {
             }
         }
     }
+
+    public Character singleCombat(Character player1, Character player2) { // TODO: Test
+
+        if (player1.level != player2.level) { // If levels aren't the same
+            if (player1.level > player2.level) { // Return the one that's the highest
+                return player1;
+            } else {
+                return player2;
+            }
+        } else { // Levels are the same
+
+            if (player1.getPrimaryAttribute() != player2.getPrimaryAttribute()) { // If it's not a tie
+                if (player1.getPrimaryAttribute() > player2.getPrimaryAttribute()) { // Return the highest
+                    return player1;
+                } else {
+                    return player2;
+                }
+            } else {
+                // Compare amount of abilities and spells
+                int player1Spells = 0;
+                int player2Spells = 0;
+
+                Character[] opponents = {player1, player2};
+                for (int i = 0; i < opponents.length; i++) { // Loop through both
+                    var current = opponents[i];
+                    int tempvalue = 0; // Add the amt of abilities/spells
+
+                    if (current instanceof Warrior) {
+                        tempvalue += ((Warrior) current).getKnownAbilities().size();
+                    } else if (current instanceof Rogue) {
+                        tempvalue += ((Rogue) current).getKnownAbilities().size();
+                    } else if (current instanceof Mage) {
+                        tempvalue += ((Mage) current).getKnownSpells().size();
+                    } else if (current instanceof Cleric) {
+                        tempvalue += ((Cleric) current).getKnownSpells().size(); 
+                    } else {
+                        throw new IllegalArgumentException("No class set for player 1.");
+                    }
+
+                    if (i == 0) { // If first loop, first player, add to player1spells
+                        player1Spells += tempvalue;
+                    } else {
+                        player2Spells += tempvalue;
+                    } 
+                }
+
+                if (player1Spells != player2Spells) { // One is more than the ither
+                    if (player1Spells > player2Spells) { // Player 1 has more
+                        return player1;
+                    } else { // Player 2 has more
+                        return player2;
+                    }
+                } else { // Tie again
+                    // TODO: Handle tie
+                    return null;
+                }
+            }
+        }
+    }
     
 }
