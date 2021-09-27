@@ -10,9 +10,11 @@ public class CollectionMain {
         test.add(4);
         test.add(5);
 
+        
         test.addAt(9, 2);
 
         test.add(6);
+         
 
         System.out.println(test.toString());
 

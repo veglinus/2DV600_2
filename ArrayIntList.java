@@ -5,17 +5,17 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
 
     @Override
     public void add(int n) {
-        System.out.println("Adding " + n + " Size is: " + this.size);
+        //System.out.println("Adding " + n + " Size is: " + this.size);
         
-        for (int i = 0; i < this.size + 1; i++) { // TODO
+        for (int i = 0; i < size() + 1; i++) { // TODO
+            //System.out.println(i + " out of " + this.size + " v: " + this.values[i]);
             if (this.values[i] == 0) {
                 //System.out.println(this.values[i] + " = empty space found, adding");
-                this.values[this.size] = n;
+                this.values[size()] = n;
                 break;
-            } else {
-                // TODO: Make array bigger and add at end
-                //System.out.println(this.values[i] + " = not empty");
             }
+
+            // TODO: Make array bigger and add at end if above 8
         }
         this.size++;
     }
@@ -30,31 +30,26 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
          */
 
         int[] newarray = new int[this.size + 1];
+        int[] oldarray = this.values.clone();
         boolean addedN = false;
 
         for (int i = 0; i < this.size; i++) {
 
             if (addedN == false) {
                 if (i == index) {
-                    System.out.println("Adding " + n + " at index " + i + " Size is: " + this.size);
-                    newarray[i] = n;
+                    //System.out.println("Adding " + n + " at index " + i + " Size is: " + this.size);
+                    this.values[i] = n;
                     addedN = true;
                     this.size++;
                 } else {
-                    newarray[i] = this.values[i];
+                    this.values[i] = this.values[i];
                 }
             } else {
-                int j = i - 1;
-                newarray[i] = this.values[j];
+                
+                
+                this.values[i] = oldarray[i - 1];
             }
         }
-
-        this.values = newarray;
-
-        /*
-        if (addedN) {
-            this.size; // Todo: TEST
-        }*/
     }
 
     public void remove(int index) throws IndexOutOfBoundsException {
