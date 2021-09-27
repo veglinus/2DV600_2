@@ -5,28 +5,20 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
 
     @Override
     public void add(int n) {
-        System.out.println("Adding " + n);
-
-        int[] newarray = new int[values.length];
-
-
-        System.out.println("Size is: " + this.size);
+        System.out.println("Adding " + n + " Size is: " + this.size);
         
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < this.size + 1; i++) {
 
             if (this.values[i] == 0) {
-                System.out.println("empty space found, adding");
-                newarray[this.size] = n;
+                //System.out.println(this.values[i] + " = empty space found, adding");
+                this.values[this.size] = n;
                 break;
             } else {
-                //System.out.println("not empty");
+                //System.out.println(this.values[i] + " = not empty");
             }
             
         }
-
-        this.values = newarray;
         this.size++;
-
     }
 
     public void addAt(int n, int index) throws IndexOutOfBoundsException {
