@@ -1,3 +1,5 @@
+package RPGgame;
+
 public class Attributes {
     int strength = 0;
     int agility = 0;

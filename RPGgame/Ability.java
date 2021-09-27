@@ -1,6 +1,8 @@
 /**
  * Ability
  */
+package RPGgame;
+
 public class Ability {
     String name;
     String proficiency;

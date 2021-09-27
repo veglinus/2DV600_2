@@ -1,3 +1,5 @@
+package RPGgame;
+
 import java.util.List;
 
 public class Battle {
