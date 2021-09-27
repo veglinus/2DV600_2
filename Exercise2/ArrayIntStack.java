@@ -1,3 +1,4 @@
+package Exercise2;
 import two_dv600.AbstractIntCollection;
 import two_dv600.IntStack;
 

@@ -1,3 +1,4 @@
+package Exercise2;
 import two_dv600.AbstractIntCollection;
 import two_dv600.IntList;
 
@@ -45,7 +46,6 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
         int[] oldarray = this.values.clone();
 
         for (int i = 0; i < oldarray.length; i++) {
-
             if (removeN == false) {
                 if (i == index) {
                     removeN = true;
@@ -61,9 +61,30 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
         return this.values[index];
     }
 
+    public int size() {
+        return this.size;
+    }
+
+    public boolean isEmpty() {
+        if (this.values.length == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public int indexOf(int n) {
-        // TODO Auto-generated method stub
-        return 0;
+        /* Find position of integer n, otherwise return -1 */
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] == n) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public String toString() {
+        return this.values.toString();
     }
     
 }

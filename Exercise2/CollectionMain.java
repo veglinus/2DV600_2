@@ -1,3 +1,4 @@
+package Exercise2;
 public class CollectionMain {
     
     public static void main(String[] args) {
@@ -13,9 +14,10 @@ public class CollectionMain {
         test.add(6);
         test.remove(1);
         test.add(7);
-         
 
         System.out.println(test.toString());
+
+        System.out.println(test.indexOf(7));
 
     }
 }
