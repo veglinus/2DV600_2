@@ -1,11 +1,8 @@
 package Exercise5;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class IdentifyWordsMain {
     
@@ -26,7 +23,7 @@ public class IdentifyWordsMain {
 
                 System.out.println(output);
                 write.write(output);
-                write.write(String.format("%n"));
+                write.write(String.format("%n")); // TODO: Fix this, it's ugly
             }
 
             write.close();
