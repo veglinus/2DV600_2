@@ -10,13 +10,14 @@ public class Word implements Comparable<Word> {
     /* Override Object methods */
 
 
+    /*
     public int hashCode() {
 
         
         
         //"compute a hash value for word"
         // TODO: What goes here?
-    }
+    }*/
 
 
     public boolean equals(Object other) {

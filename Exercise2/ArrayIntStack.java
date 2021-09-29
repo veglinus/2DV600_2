@@ -5,7 +5,7 @@ import two_dv600.IntStack;
 public class ArrayIntStack extends AbstractIntCollection implements IntStack {
 
     public void push(int n) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated method stub 
         
     }
 
