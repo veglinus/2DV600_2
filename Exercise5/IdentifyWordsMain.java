@@ -8,7 +8,6 @@ public class IdentifyWordsMain {
     
     public static void main(String[] args) throws Exception {
         
-
         try {
             File words = new File("Exercise5/HistoryOfProgramming.txt");
             Scanner myScanner = new Scanner(words);
@@ -18,12 +17,14 @@ public class IdentifyWordsMain {
             FileWriter write = new FileWriter("Exercise5/words.txt");
 
             while (myScanner.hasNextLine()) {
+
+                // TODO: More exception handling?
                 String input = myScanner.nextLine();
                 String output = input.replaceAll("[^\\w\\s]+", "");
 
                 System.out.println(output);
                 write.write(output);
-                write.write(String.format("%n")); // TODO: Fix this, it's ugly
+                write.write(String.format("%n")); 
             }
 
             write.close();
