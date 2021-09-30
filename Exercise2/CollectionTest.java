@@ -1,5 +1,6 @@
 package Exercise2;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CollectionTest {
@@ -13,8 +14,7 @@ public class CollectionTest {
         test.add(3);
         test.add(4);
         test.add(5);
-
-        System.out.println(test.toString());
+        Assertions.assertEquals("[ 1 2 3 4 5 ]", test.toString());
     }
 
     @Test
@@ -25,8 +25,7 @@ public class CollectionTest {
         test.add(4);
         test.add(5);
         test.addAt(9, 2);
-
-        System.out.println(test.toString());
+        Assertions.assertEquals("[ 1 2 9 3 4 5 ]", test.toString());
     }
 
     @Test
@@ -39,7 +38,8 @@ public class CollectionTest {
         test.add(6);
         test.remove(1);
         test.add(7);
-
-        System.out.println(test.toString());
+        Assertions.assertEquals("[ 1 3 4 5 6 7 ]", test.toString());
     }
+
+    
 }

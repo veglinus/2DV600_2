@@ -83,8 +83,9 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
         return -1;
     }
 
+    @Override
     public String toString() {
-        return this.values.toString();
+        return super.toString();
     }
     
 }

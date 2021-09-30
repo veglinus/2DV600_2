@@ -68,7 +68,7 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
 	
 	/* String of type "[ 7 56 -45 68 ... ]" */
 	public String toString() {
-        return this.values.toString();
+        return super.toString();
     };
     
 }
