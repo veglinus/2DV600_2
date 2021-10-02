@@ -25,22 +25,29 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
         int[] oldarray = this.values.clone();
         boolean addedN = false;
 
-        for (int i = 0; i < this.size; i++) {
+        if (index > this.size) {
+            throw new IllegalArgumentException("Index " + index + " does not exist in IntList.");
+        }
+
+        for (int i = 0; i < this.size + 1; i++) {
 
             if (addedN == false) {
                 if (i == index) { // If we're at desired index, add new value
                     //System.out.println("Adding " + n + " at index " + i + " Size is: " + this.size);
                     this.values[i] = n;
                     addedN = true;
-                    this.size++; // We added a value, increase size
+                    
                 }
             } else {
                 this.values[i] = oldarray[i - 1]; // 1 step back in original array
             }
         }
+        if (addedN) {
+            this.size++; // We added a value, increase size
+        }
     }
 
-    public void remove(int index) throws IndexOutOfBoundsException { // TODO
+    public void remove(int index) throws IndexOutOfBoundsException {
 
         boolean removeN = false;
         int[] oldarray = this.values.clone();
@@ -66,17 +73,17 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
     }
 
     public boolean isEmpty() {
-        if (this.values.length == 0) {
-            return true;
-        } else {
+        if (super.size > 0) {
             return false;
+        } else {
+            return true;
         }
     }
 
     public int indexOf(int n) {
         /* Find position of integer n, otherwise return -1 */
-        for (int i = 0; i < values.length; i++) {
-            if (values[i] == n) {
+        for (int i = 0; i < super.size(); i++) {
+            if (this.values[i] == n) {
                 return i;
             }
         }
