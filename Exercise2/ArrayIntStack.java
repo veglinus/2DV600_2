@@ -26,8 +26,8 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
             for (int i = size() - 1; i >= 0; i--) { // Iterate backwards
                 if (this.values[i] != 0) { // First occurance of value
                     int oldvalue = this.values[i];
-    
                     this.values[i] = 0; // Set to 0
+                    this.size--;
                     return oldvalue;
                 }
             }
@@ -51,19 +51,16 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
 	
 	/* Number of integers currently stored. */
 	public int size() {
-        return size();
+        return super.size();
     };
 	
 	/* Returns true if collection is empty. */
 	public boolean isEmpty() {
-
-        for (int i = 0; i < size(); i++) {
-            if (this.values[i] != 0) {
-                return true;
-            }
+        if (super.size() > 0) {
+            return false;
+        } else {
+            return true;
         }
-
-        return false;
     };
 	
 	/* String of type "[ 7 56 -45 68 ... ]" */
