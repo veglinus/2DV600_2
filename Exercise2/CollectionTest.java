@@ -33,6 +33,10 @@ public class CollectionTest {
         test.add(5);
         test.addAt(9, 2);
         Assertions.assertEquals("[ 1 2 9 3 4 5 ]", test.toString());
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            test.addAt(5, 10);
+        });
     }
 
     @Test
@@ -44,6 +48,10 @@ public class CollectionTest {
         test.add(5);
         test.remove(1);
         Assertions.assertEquals("[ 1 3 4 5 ]", test.toString());
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            test.remove(9);
+        });
     }
 
     @Test
@@ -54,6 +62,10 @@ public class CollectionTest {
         test.add(4);
         test.add(5);
         Assertions.assertEquals(1, test.get(0));
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            test.get(10);
+        });
     }
 
     @Test
@@ -96,5 +108,82 @@ public class CollectionTest {
         Assertions.assertEquals(-1, test.indexOf(0));
     }
 
-    
+    @Test
+    public void testToString() {
+        test.add(1);
+        test.add(2);
+        test.add(3);
+        Assertions.assertEquals("[ 1 2 3 ]", test.toString());
+        test.remove(2);
+        test.remove(0);
+        test.remove(0);
+        Assertions.assertEquals("[ ]", test.toString());
+    }
+
+
+    ArrayIntStack test2 = new ArrayIntStack();
+
+    @Test
+    public void testPush() {
+        test2.push(1);
+        test2.push(2);
+        test2.push(3);
+        Assertions.assertEquals("[ 1 2 3 ]", test2.toString());
+    }
+
+    @Test
+    public void testPop() {
+        test2.push(1);
+        test2.push(2);
+        test2.push(3);
+        test2.pop();
+        Assertions.assertEquals("[ 1 2 ]", test2.toString());
+    }
+
+    @Test
+    public void testPeek() {
+        test2.push(1);
+        test2.push(2);
+        test2.push(3);
+        Assertions.assertEquals(3, test2.peek());
+        test2.pop();
+        Assertions.assertEquals(2, test2.peek());
+    }
+
+    @Test
+    public void testStackSize() {
+        test2.push(1);
+        test2.push(2);
+        test2.push(3);
+        test2.push(4);
+        test2.push(5);
+        Assertions.assertEquals(5, test2.size());
+        test2.pop();
+        Assertions.assertEquals(4, test2.size());
+        Assertions.assertEquals("[ 1 2 3 4 ]", test2.toString());
+        test2.push(5);
+        test2.push(6);
+        Assertions.assertEquals(6, test2.size());
+    }
+
+    @Test
+    public void testStackIsEmpty() {
+        Assertions.assertEquals(true, test2.isEmpty());
+        test2.push(1);
+        Assertions.assertEquals(false, test2.isEmpty());
+        test2.pop();
+        Assertions.assertEquals(true, test2.isEmpty());
+    }
+
+    @Test
+    public void testStackToString() {
+        test2.push(1);
+        test2.push(2);
+        test2.push(3);
+        Assertions.assertEquals("[ 1 2 3 ]", test2.toString());
+        test2.pop();
+        test2.pop();
+        test2.pop();
+        Assertions.assertEquals("[ ]", test2.toString());
+    }
 }

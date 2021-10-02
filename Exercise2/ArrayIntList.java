@@ -26,7 +26,7 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
         boolean addedN = false;
 
         if (index > this.size) {
-            throw new IllegalArgumentException("Index " + index + " does not exist in IntList.");
+            throw new IndexOutOfBoundsException("Index " + index + " does not exist in IntList.");
         }
 
         for (int i = 0; i < this.size + 1; i++) {
@@ -52,6 +52,10 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
         boolean removeN = false;
         int[] oldarray = this.values.clone();
 
+        if (index > this.size) {
+            throw new IndexOutOfBoundsException("Index " + index + " does not exist in IntList.");
+        }
+
         for (int i = 0; i < oldarray.length; i++) {
             if (removeN == false) {
                 if (i == index) {
@@ -65,6 +69,9 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
     }
 
     public int get(int index) throws IndexOutOfBoundsException {
+        if (index > this.size) {
+            throw new IndexOutOfBoundsException("Index " + index + " does not exist in IntList.");
+        }
         return this.values[index];
     }
 
