@@ -24,7 +24,10 @@ public class IdentifyWordsMain {
 
                 System.out.println(output);
                 write.write(output);
-                write.write(String.format("%n")); 
+
+                if (myScanner.hasNextLine()) {
+                    write.write(String.format("%n")); 
+                }
             }
 
             write.close();

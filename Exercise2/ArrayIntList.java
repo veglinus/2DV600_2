@@ -6,17 +6,10 @@ public class ArrayIntList extends AbstractIntCollection implements IntList {
 
     @Override
     public void add(int n) {
-        //System.out.println("Adding " + n + " Size is: " + this.size);
-        for (int i = 0; i < size() + 1; i++) {
-            //System.out.println(i + " out of " + this.size + " v: " + this.values[i]);
-            if (this.values[i] == 0) {
-                //System.out.println(this.values[i] + " = empty space found, adding");
-                this.values[size()] = n;
-                break;
-            }
-            // TODO: Make array bigger and add at end if above 8
+        if (size() == values.length) {
+            resize();
         }
-        this.size++;
+        this.values[size++] = n;
     }
 
     public void addAt(int n, int index) throws IndexOutOfBoundsException {

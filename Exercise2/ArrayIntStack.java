@@ -14,13 +14,13 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
                 this.values[size()] = n;
                 break;
             }
-            // TODO: Make array bigger and add at end if above 8
+            // TODO: Make array bigger by calling resize()
         }
         this.size++;
 
     }
 
-    public int pop() throws IndexOutOfBoundsException { // TODO: test
+    public int pop() throws IndexOutOfBoundsException {
         /* Returns and removes integer at top of stack  */
         try {
             for (int i = size() - 1; i >= 0; i--) { // Iterate backwards

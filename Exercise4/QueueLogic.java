@@ -3,6 +3,9 @@ import java.util.Iterator;
 
 class Test<E> implements Queue<E> {
 
+    E[] queue;
+    E[] newqueue;
+
     public Iterator<E> iterator() {
         // TODO Auto-generated method stub
         return null;
@@ -25,6 +28,15 @@ class Test<E> implements Queue<E> {
     }
 
     public void enqueue(E element) {
+        
+        /*
+        for (int i = 0; i < queue.length; i++) {
+            newqueue[i] = queue[i];
+        }
+        */
+
+        queue[queue.length + 1] = element;
+        this.queue = newqueue;
         // TODO Auto-generated method stub
         
     }
@@ -43,5 +55,14 @@ class Test<E> implements Queue<E> {
         // TODO Auto-generated method stub
         return null;
     }
+
+    /*
+    private class Node {
+        E data;
+
+        Node(E data) {
+            this.data = data;
+        }
+    }*/
 
 }
