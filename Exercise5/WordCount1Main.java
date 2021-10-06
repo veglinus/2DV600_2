@@ -29,9 +29,11 @@ public class WordCount1Main {
 
             }
 
-            for (Word word : treeSet) {
-                System.out.println(word.toString());
-            }
+            System.out.println("Hashset size: " + hashset.size());
+            System.out.println("Treeset size: " + treeSet.size());
+            System.out.println("Treeset: " + treeSet);
+
+
             myScanner.close();
         } catch (Exception e) {
             throw e;

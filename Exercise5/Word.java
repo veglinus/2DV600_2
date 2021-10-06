@@ -4,23 +4,33 @@ public class Word implements Comparable<Word> {
     private String word;
    
     public Word(String str) { 
-        this.word = str;
+        this.word = str.toLowerCase();
     }
 
+    @Override
     public String toString() { return word; }
-    /* Override Object methods */
     
+    @Override
     public int hashCode() {
-        return word.hashCode();
-        // TODO: Implement own hash method
+        String wordLower = word.toLowerCase();
+        char[] chars = wordLower.toCharArray();
+        int hash = 0;
+
+        for (int i = 0; i < chars.length; i++) {
+            var x = Character.getNumericValue(chars[i]);
+            x = x * 31;
+            hash += x;
+        }
+
+        return hash;
     }
 
-
+    @Override
     public boolean equals(Object other) {
     // true if two words are equal"
 
-        String word1 = this.word.toLowerCase();
-        String word2 = other.toString().toLowerCase();
+        int word1 = this.word.hashCode();
+        int word2 = other.toString().hashCode();
 
         if (word1 == word2) {
             return true;
@@ -30,30 +40,8 @@ public class Word implements Comparable<Word> {
     }
 
     /* Implement Comparable */
-    public int compareTo(Word w) { // TODO: test
+    public int compareTo(Word w) {
         //"compares two words lexicographically"
-
-        // "we consider upper case and lower case as equal."
-        char[] array1 = w.word.toLowerCase().toCharArray();
-        char[] array2 = this.word.toLowerCase().toCharArray();
-        int matches = 0;
-
-        if (array1.length == array2.length) { // if words are of same length:
-
-            for (int i = 0; i < array1.length; i++) { // Foreach letter, if match, add to match index
-                if (array1[i] == array2[i]) {
-                    matches++;
-                }
-            }
-
-            if (matches == array1.length) { // if match index = length of word === lexicographically identical
-                return 1;
-            } else {
-                return 0;
-            }
-
-        } else {
-            return 0; // TODO: What should the return value be?
-        }
+        return word.compareTo(w.toString());
     }
 } 
