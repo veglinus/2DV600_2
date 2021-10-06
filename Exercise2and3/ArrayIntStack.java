@@ -7,6 +7,10 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
     public void push(int n) {
         /* Add integer at top of stack. */
 
+        if (size() == values.length) {
+            resize();
+        }
+
         for (int i = 0; i < size() + 1; i++) {
             //System.out.println(i + " out of " + this.size + " v: " + this.values[i]);
             if (this.values[i] == 0) {
@@ -14,7 +18,6 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
                 this.values[size()] = n;
                 break;
             }
-            // TODO: Make array bigger by calling resize()
         }
         this.size++;
 
@@ -32,7 +35,7 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
                 }
             }
 
-            return 0;
+            throw new IndexOutOfBoundsException("No values were found in stack.");
 
         } catch (Exception e) {
             throw new IndexOutOfBoundsException("No values were found in stack.");
@@ -40,13 +43,18 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack {
     }
 
     public int peek() throws IndexOutOfBoundsException {
-        for (int i = size() - 1; i >= 0; i--) { // Iterate backwards
-            if (this.values[i] != 0) { // First occurance of value
-                return this.values[i];
+        try {
+            for (int i = size() - 1; i >= 0; i--) { // Iterate backwards
+                if (this.values[i] != 0) { // First occurance of value
+                    return this.values[i];
+                }
             }
+
+            throw new IndexOutOfBoundsException("No values were found in stack.");
+        } catch (Exception e) {
+            throw new IndexOutOfBoundsException("No values were found in stack.");
         }
 
-        return 0;
     }
 	
 	/* Number of integers currently stored. */

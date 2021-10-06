@@ -19,8 +19,8 @@ public class WordTest {
         int result2 = word1.compareTo(new Word("test"));
         int result3 = word1.compareTo(new Word("tst"));
 
-        Assertions.assertEquals(1, result1);
-        Assertions.assertEquals(1, result2);
-        Assertions.assertEquals(0, result3);
+        Assertions.assertEquals(0, result1);
+        Assertions.assertEquals(0, result2);
+        Assertions.assertEquals(-14, result3);
     }
 }

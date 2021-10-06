@@ -42,6 +42,6 @@ public class Word implements Comparable<Word> {
     /* Implement Comparable */
     public int compareTo(Word w) {
         //"compares two words lexicographically"
-        return word.compareTo(w.toString());
+        return this.word.compareTo(w.toString());
     }
 } 
