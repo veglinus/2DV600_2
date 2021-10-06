@@ -1,7 +1,7 @@
 /**
  * Ability
  */
-package RPGgame;
+package Exercise1;
 
 public class Ability {
     String name;

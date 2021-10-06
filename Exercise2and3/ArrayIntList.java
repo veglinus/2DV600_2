@@ -1,4 +1,4 @@
-package Exercise2;
+package Exercise2and3;
 import two_dv600.AbstractIntCollection;
 import two_dv600.IntList;
 

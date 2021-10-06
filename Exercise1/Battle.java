@@ -1,4 +1,4 @@
-package RPGgame;
+package Exercise1;
 
 import java.util.List;
 

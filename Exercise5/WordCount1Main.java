@@ -16,7 +16,6 @@ public class WordCount1Main {
             TreeSet<Word> treeSet = new TreeSet<Word>();
 
             while (myScanner.hasNextLine()) {
-                // TODO: More exception handling?
                 String input = myScanner.nextLine();
 
                 String[] wordArray = input.split(" ");

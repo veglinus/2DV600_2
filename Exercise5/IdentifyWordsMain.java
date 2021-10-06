@@ -17,12 +17,9 @@ public class IdentifyWordsMain {
             FileWriter write = new FileWriter("Exercise5/words.txt");
 
             while (myScanner.hasNextLine()) {
-
-                // TODO: More exception handling?
                 String input = myScanner.nextLine();
                 String output = input.replaceAll("[^\\w\\s]+|[0-9]", "");
 
-                //System.out.println(output);
                 write.write(output);
 
                 if (myScanner.hasNextLine()) {

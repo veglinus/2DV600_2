@@ -1,4 +1,4 @@
-package Exercise2;
+package Exercise2and3;
 public class CollectionMain {
     
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package RPGgame;
+package Exercise1;
 
 public class Testing {
     public static void main(String[] args) {

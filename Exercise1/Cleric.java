@@ -1,25 +1,25 @@
-package RPGgame;
+package Exercise1;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mage extends Character {
+public class Cleric extends Character {
 
     List<String> knownSpells = new ArrayList<>();
-    String allowedSchool1 = "evocation";
-    String allowedSchool2 = "alteration";
+    String allowedSchool1 = "restoration";
+    String allowedSchool2 = "divination";
 
-    Mage(String name) {
+    Cleric(String name) {
         this.name = name;
-        this.className = "Mage";
+        this.className = "Cleric";
     }
 
-    Mage(String name, int level) {
+    Cleric(String name, int level) {
         this.name = name;
-        this.className = "Mage";
+        this.className = "Cleric";
         this.level = level;
     }
-    
+
     void learnSpell(Spell spell) {
         String spellLowercase = spell.school.toLowerCase();
 

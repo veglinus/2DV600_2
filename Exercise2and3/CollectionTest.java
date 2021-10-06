@@ -1,4 +1,4 @@
-package Exercise2;
+package Exercise2and3;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
