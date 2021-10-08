@@ -96,7 +96,6 @@ public class Battle {
                         return party2;
                     }
                 } else { // Everything is equal. Tie
-                    // TODO: Handle tie
                     return null;
                 }
             }
@@ -155,7 +154,6 @@ public class Battle {
                         return player2;
                     }
                 } else { // Tie again
-                    // TODO: Handle tie
                     return null;
                 }
             }

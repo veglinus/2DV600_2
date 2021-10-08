@@ -28,5 +28,13 @@ public class Testing {
         } else {
             System.out.println(winner[0].name + " party won!");
         }
+
+        var winner2 = b.singleCombat(mychar, mychar2);
+
+        if (winner2 == null) {
+            System.out.println("Tie!");
+        } else {
+            System.out.println(winner2.name + " won!");
+        }
     }
 }
